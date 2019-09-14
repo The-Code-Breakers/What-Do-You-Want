@@ -9,10 +9,15 @@
 var userDate = $("userDate").val();
 console.log (userDate);
 
-// grabs the users location
+// grabs the users city
 
-var userLocation = $("userLocation").val();
-console.log(userLocation);
+var userCity = $("userCity").val();
+console.log(userCity);
+
+// grabs the users state
+
+var userSate = $("userState").val();
+console.log(userState);
 
 // object of picked time 
 let timeSlot = {
@@ -82,9 +87,15 @@ console.log(pickedTime);
 
 // Submit Button
 const submitBtn = function submit() {
+    userCity.val().trim();
 
+    userState.val();
 
-   if( (userDate == "") & (userLocation) & (pickedTime) == true)
+    userDate.val();
+
+    pickedTime.val();
+
+   if( (userDate == "") & (userState == "") & (pickedTime == "") (userCity == ""))
 
 
 
