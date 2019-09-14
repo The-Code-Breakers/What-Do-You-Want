@@ -79,7 +79,7 @@ let timeSlot = {
 
 
 
-
+// creating a status variable to see if meets the requirements 
 
 /* Dynamic-Buttons */
 let pickedTime = timeSlot[$("#time-Input").val()];
