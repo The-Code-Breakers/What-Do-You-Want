@@ -4,18 +4,39 @@
 
 /* Global variables */
 
-// Grabs User's Information
+//Grab the users Date
 
-// Grab the users name
-
-var userName = $("fName").val();
-
-//Grab the users time
-
-var userTime = $("userTime").val();
+var userDate = $("userDate").val();
+console.log (userDate);
 
 // grabs the users location
+
 var userLocation = $("userLocation").val();
+console.log(userLocation);
+
+// object of picked time 
+let timeSlot = {
+    breakfast: {
+      start: "8:00",
+      end: "12:00"
+    },
+    brunch: {
+      start: "10:00",
+      end: "14:00"
+    },
+    lunch: {
+      start: "12:00",
+      end: "16:00"
+    },
+    dinner: {
+      start: "16:00",
+      end: "20:00"
+    },
+    lateNight: {
+      start: "20:00",
+      end: "8:00"
+    }
+  };
 
 /* API Request Section for: Evenful-API, OpenWeather-API, Yelp-API */
 
@@ -51,41 +72,30 @@ var userLocation = $("userLocation").val();
 
 /* ---------------------------------------------------------------------------*/
 
-let timeSlot = {
-  breakfast: {
-    start: "8:00",
-    end: "12:00"
-  },
-  brunch: {
-    start: "10:00",
-    end: "14:00"
-  },
-  lunch: {
-    start: "12:00",
-    end: "16:00"
-  },
-  dinner: {
-    start: "16:00",
-    end: "20:00"
-  },
-  lateNight: {
-    start: "20:00",
-    end: "8:00"
-  }
-};
+
+
+
 
 /* Dynamic-Buttons */
 let pickedTime = timeSlot[$("#time-Input").val()];
 console.log(pickedTime);
 
-let random;
-
 // Submit Button
-const submitBtn = function submit() {};
+const submitBtn = function submit() {
+
+
+   if( (userDate == "") & (userLocation) & (pickedTime) == true)
+
+
+
+};
+$(".btn").on("submit", submitBtn);
 
 // Randomize Button
 const tryAgainBtn = function randomize() {};
 
+
+$(".btn").on("tryAgain", tryAgainBtn);
 // Clear Button
 const clearBtn = function clear() {
   $("#userTime").val("");
