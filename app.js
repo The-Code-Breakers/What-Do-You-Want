@@ -1,41 +1,29 @@
 /* Application for project 1 named "What-Do-You-Want" */
 
-
-
-
 /* ---------------------------------------------------------------------------*/
-
-
 
 /* Global variables */
 
-// Grabs User's Information 
+// Grabs User's Information
 
-// Grab the users location
+// Grab the users name
 
-var userName =  $("fName").val();
+var userName = $("fName").val();
 
 //Grab the users time
 
-var userTime = $("userTime").val() ;
+var userTime = $("userTime").val();
 
-// grabs the users date
+// grabs the users location
 var userLocation = $("userLocation").val();
-
-
-
 
 /* API Request Section for: Evenful-API, OpenWeather-API, Yelp-API */
 
 /* ---------------------------------------------------------------------------*/
 
-
-
 /*  Evenful-API */
 
-// AJAX method 
-
-
+// AJAX method
 
 //variable to call concerts
 
@@ -43,63 +31,65 @@ var userLocation = $("userLocation").val();
 
 //variable to call bars
 
-
-
-
 /* ---------------------------------------------------------------------------*/
-
-
 
 /* OpenWeather-API*/
 
-// AJAX method 
+// AJAX method
 
 //variable to call weather provided by the user location
 
-
-
 /* ---------------------------------------------------------------------------*/
-
 
 /* Yelp-API */
 
-// AJAX method 
+// AJAX method
 
+// grab closest restaurants restaurants
 
-
-// grab closest restaurants restaurants 
-
-// reveiws of said restaurants 
-
-
+// reveiws of said restaurants
 
 /* ---------------------------------------------------------------------------*/
 
-
+let timeSlot = {
+  breakfast: {
+    start: "8:00",
+    end: "12:00"
+  },
+  brunch: {
+    start: "10:00",
+    end: "14:00"
+  },
+  lunch: {
+    start: "12:00",
+    end: "16:00"
+  },
+  dinner: {
+    start: "16:00",
+    end: "20:00"
+  },
+  lateNight: {
+    start: "20:00",
+    end: "8:00"
+  }
+};
 
 /* Dynamic-Buttons */
-let time = $("#userTime");
+let pickedTime = timeSlot[$("#time-Input").val()];
+console.log(pickedTime);
+
 let random;
-let reset = $("#reset");
 
-// Submit Button 
-const submitBtn = function submit(){
-
-
-
-};
+// Submit Button
+const submitBtn = function submit() {};
 
 // Randomize Button
-const tryAgainBtn = function randomize(){
+const tryAgainBtn = function randomize() {};
 
-};
-
-
-// Clear Button 
-const clearBtn = function clear(){
-    $("##userTime").val("");
-    $("#Destination-input").val("");
-    $("#reset").val("");
+// Clear Button
+const clearBtn = function clear() {
+  $("#userTime").val("");
+  $("#Destination-input").val("");
 };
 
 /* ---------------------------------------------------------------------------*/
@@ -110,19 +100,11 @@ const clearBtn = function clear(){
 
 /* Card outputs information*/
 
-
-
 // Card-Details
-
-
 
 // Card-Event-1
 
-
-
 // Card-Event-2
-
-
 
 // Card-Event-3
 
