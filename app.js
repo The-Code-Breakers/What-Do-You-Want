@@ -103,7 +103,7 @@ const submitBtn = function submit() {
     pickedTime.val();
 
     //
-   if( (userDate == "" ) & (userState == "") & (pickedTime == "") & (userCity == "")){
+   if( (userDate == "" ) || (userState == "")|| (pickedTime == "") || (userCity == "")){
         (userCity).innerHTML=  "Please enter the city";
 
         (userState).innerHTML=  "Please enter the state";
@@ -152,3 +152,5 @@ const clearBtn = function clear() {
 /* Second page */
 
 // check to make sure all requirements are met so they can go to the next page
+
+<script src="VerbalExpressions.js"></script>
