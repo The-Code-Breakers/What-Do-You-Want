@@ -103,7 +103,7 @@ const submitBtn = function submit() {
     pickedTime.val();
 
     //
-   if( (userDate == "" ) || (userState == "")|| (pickedTime == "") || (userCity == "")){
+   if( (userDate == "" ) || (userState == "") || (pickedTime == "") || (userCity == "")){
         (userCity).innerHTML=  "Please enter the city";
 
         (userState).innerHTML=  "Please enter the state";
@@ -117,6 +117,17 @@ const submitBtn = function submit() {
        status = true;
    }
 
+// first it will check the first line for any word OR it will check and see if the city has two words instead of just one.
+if ( (userCity == "^[A-Za-z]|^[A-Za-z]\s[A-Za-z]") || 
+
+// 
+(userCity == "")){
+
+  (userCity).innerHTML = "Please enter letters";
+  status = false;
+} else{
+  status = true;
+}
 
 
 };
