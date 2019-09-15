@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Bootstrap Modal Example</title>
   <meta charset="utf-8">
@@ -9,41 +10,82 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
-<div class="container">
-  <h2>Modal Example</h2>
-  <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Open modal
-  </button>
+  <div class="container">
 
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
+    <h2>Invalid Data Modal</h2>
+
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#badDataModal">
+      Open modal
+    </button>
+
+    <!-- The Modal -->
+    <div class="modal" id="badDataModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
         
-        <!-- Modal body -->
-        <div class="modal-body">
-          Modal body..
+          <!-- Modal Header -->
+          <div class="modal-header">
+            
+            <h4 class="modal-title">Oops! Invalid info in the following:</h4>
+
+            <button type="button" class="close" data-dismiss="modal">&times;</button> 
+
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+            Invalid entries, csv or ordered list
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">ReEnter</button>
+          </div>  
+          
         </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
       </div>
     </div>
+    
   </div>
-  
-</div>
 
 </body>
 </html>
+
+
+<!--pseudocode for show *ShowModal* function
+      Function parameter is (invalidEntries)
+      the invalidEnteries parameter is a string varible with the labels of the input boxes
+      with invalid data
+
+    Modal name is *badDataModal*
+
+
+  
+    The function will be called if there is any invalid input from the following:
+      time (time of day)
+      date (date from date picker)
+      location (city, state) - may need to add split input into city (to be typed) and state (state picker)
+      event (? drop down or type in)
+      restauraunt ? does this mean event type?
+
+    modal will pop up displaying the list of label(s) for each invalid input
+    obtained from the invalidEnteries parameter
+    
+    user can press the 'close' button at the left corner of the footer
+       - or maybe the button will say 'try again' or something less generic than 'close':
+       modal will close 
+       function  will clear the invaled input box(es) contents
+       cursor will go to the first invalid box       
+       await input
+
+    if the user presses the dismiss 'x' button on the right side of the modal header
+      modal will close
+      clear all input boxes
+      cursor will go to the first input box
+    (Is this a good idea)
+      
+-->
