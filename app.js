@@ -6,17 +6,17 @@
 
 //Grab the users Date
 
-var userDate = $("userDate").val();
+var userDate = $("#userDate").val();
 console.log (userDate);
 
 // grabs the users city
 
-var userCity = $("userCity").val();
+var userCity = $("#userCity").val();
 console.log(userCity);
 
 // grabs the users state
 
-var userState = $("userState").val();
+var userState = $("#userState").val();
 console.log(userState);
 
 // object of picked time 
@@ -83,7 +83,7 @@ let showModal = ("#showModal")
 
 var currentDate = moment();
   console.log("CURRENT TIME: " + moment(currentTime).calender());
-
+     
 
 // creating a status variable to see if meets the requirements 
 var status = false;
@@ -94,6 +94,8 @@ console.log(pickedTime);
 
 // Submit Button
 const submitBtn = function submit() {
+
+    // taking in all the values from the form
     userCity.val().trim();
 
     userState.val();
@@ -102,7 +104,7 @@ const submitBtn = function submit() {
 
     pickedTime.val();
 
-    //
+    // check to make sure all requirements are met so they can go to the next page
    if( (userDate == "" ) || (userState == "") || (pickedTime == "") || (userCity == "")){
         (userCity).innerHTML=  "Please enter the city";
 
@@ -118,10 +120,7 @@ const submitBtn = function submit() {
    }
 
 // first it will check the first line for any word OR it will check and see if the city has two words instead of just one.
-if ( (userCity == "^[A-Za-z]|^[A-Za-z]\s[A-Za-z]") || 
-
-// 
-(userCity == "")){
+if ( (userCity == "^[A-Za-z]|^[A-Za-z]\s[A-Za-z]") ){
 
   (userCity).innerHTML = "Please enter letters";
   status = false;
@@ -129,6 +128,15 @@ if ( (userCity == "^[A-Za-z]|^[A-Za-z]\s[A-Za-z]") ||
   status = true;
 }
 
+/* Card outputs information*/
+
+// Card-Details
+
+// Card-Event-1
+
+// Card-Event-2
+
+// Card-Event-3
 
 };
 $(".btn").on("submit", submitBtn);
@@ -148,20 +156,9 @@ const clearBtn = function clear() {
 
 /* Event listener function */
 
-// submitBtn.addEventListener("click", Submit , true)
-
-/* Card outputs information*/
-
-// Card-Details
-
-// Card-Event-1
-
-// Card-Event-2
-
-// Card-Event-3
 
 /* Second page */
 
-// check to make sure all requirements are met so they can go to the next page
+
 
 <script src="VerbalExpressions.js"></script>
