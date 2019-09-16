@@ -76,9 +76,10 @@ let timeSlot = {
 // reveiws of said restaurants
 
 /* ---------------------------------------------------------------------------*/
-// this is the vairable for the modal
-let showModal = ("#showModal")
 
+
+ // Get the <span> element that closes the modal
+   
 // Have a current time variable and check the users date to make sure it valid
 
 var currentDate = moment();
@@ -94,6 +95,9 @@ console.log(pickedTime);
 
 // Submit Button
 const submitBtn = function submit() {
+
+    // this is the vairable for the modal
+let showModal = ("#showModal")
 
     // taking in all the values from the form
     userCity.val().trim();
@@ -128,6 +132,8 @@ if ( (userCity == "^[A-Za-z]|^[A-Za-z]\s[A-Za-z]") ){
   status = true;
 }
 
+
+
 /* Card outputs information*/
 
 // Card-Details
@@ -139,6 +145,8 @@ if ( (userCity == "^[A-Za-z]|^[A-Za-z]\s[A-Za-z]") ){
 // Card-Event-3
 
 };
+
+
 $(".btn").on("submit", submitBtn);
 
 // Randomize Button
