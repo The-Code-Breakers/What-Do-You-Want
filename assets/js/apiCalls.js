@@ -49,6 +49,15 @@ let mealCall = function(city, state, time) {
     //  Make AJAX call with queryURL, and GET method
     //  return response;
 }
+
+//  function to call the Foursquare API for the "Event" result
+let eventCall = function(city, state, time) {
+    let endpoint = "https://api.foursquare.com/v2/venues/explore?";
+    let clientInfo = "client_id=3N2N3WZK5ZGFFORDLOQ2PISXVJG1UI5VPYZFFPJY2BD1U1G1&client_secret=QXZWHCJJLB21N2WI1YFUWELH1SULPYKKRKKQSEOCAUXA2ZON";
+    let queryURL = endpoint + clientInfo + "&";
+    //  Use args to generate queryURL, and make API call
+    queryURL += "near=" + city + "," + state + "&time=" + time;
+}
 //  This is a space for notes on the Foursquare API, and how we're utilizing it in this app.
 /*
     Client ID: 3N2N3WZK5ZGFFORDLOQ2PISXVJG1UI5VPYZFFPJY2BD1U1G1
