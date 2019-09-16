@@ -1,5 +1,5 @@
 //  This document establishes the functions neccessary for calling the various API's used in
-//  this web application. First is our Open-Weather api. Then our Foursquare API.
+//  this web application. First is our Open-Weather api, or the Darksky API. Then our Foursquare API.
 
 //  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //  For the Open-Weather API
@@ -21,13 +21,19 @@ let getZip = function(cityInput, stateInput){
 }
 //  function to call the Open-Weather API
 let weatherCall = function(zip, date, time) {
-    //  
+    let endpoint = "https://api.openweathermap.org/data/2.5/forecast/daily?";
+    let key = "appid=b1b15e88fa797225412429c1c50c122a1";
+    let queryURL = endpoint + key + "&";
+    //  Use args to generate queryURL, and make API call
+    queryURL += "zip=" + zip;
+    //  Make AJAX call with queryURL, and GET method
+    //  return response;
 }
 //  This is a space for notes on the Open-Weather API, and how we're utilizing it in this app
 /*
-    API Key:
-    Endpoint:
-    Query Parameters:
+    API Key: b1b15e88fa797225412429c1c50c122a1
+    Endpoint: https://api.openweathermap.org/data/2.5/forecast/daily?
+    Query Parameters: zip=zip 
 */
 
 
