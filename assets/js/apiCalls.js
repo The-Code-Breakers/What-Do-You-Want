@@ -57,6 +57,8 @@ let eventCall = function(city, state, time) {
     let queryURL = endpoint + clientInfo + "&";
     //  Use args to generate queryURL, and make API call
     queryURL += "near=" + city + "," + state + "&time=" + time;
+    //  Make AJAX call with queryURL, and GET method
+    //  return response;
 }
 //  This is a space for notes on the Foursquare API, and how we're utilizing it in this app.
 /*
