@@ -76,12 +76,18 @@ let timeSlot = {
 // reveiws of said restaurants
 
 /* ---------------------------------------------------------------------------*/
-// this is the vairable for the modal
-let showModal = ("#showModal")
+/* Modal display */
 
+  // this is the vairable for the modal
+let showModal = $("#showModal");
+
+let submitMod = $("#submitMod");
+
+ // Get the <span> element that closes the modal
+   
 // Have a current time variable and check the users date to make sure it valid
 
-var currentDate = moment();
+let currentDate = moment();
   console.log("CURRENT TIME: " + moment(currentTime).calender());
      
 
@@ -95,6 +101,8 @@ console.log(pickedTime);
 // Submit Button
 const submitBtn = function submit() {
 
+  
+
     // taking in all the values from the form
     userCity.val().trim();
 
@@ -105,48 +113,75 @@ const submitBtn = function submit() {
     pickedTime.val();
 
     // check to make sure all requirements are met so they can go to the next page
-   if( (userDate == "" ) || (userState == "") || (pickedTime == "") || (userCity == "")){
-        (userCity).innerHTML=  "Please enter the city";
-
-        (userState).innerHTML=  "Please enter the state";
-
-        (userDate).innerHTML=  "Please enter the date";
-
-        (pickedTime).innerHTML=  "Please enter a time";
-
-        status = false;
-   } else{
+    status = true
+    if ( userDate == "" ) {
+    // Please Enter Date
+    status = false; 
+    (userDate).innerHTML=  "Please enter the date";
+    }
+    if ( userState == "" ) {
+    // Please Enter State
+    status = false;
+   (userState).innerHTML=  "Please enter the state";
+    }
+    if ( pickedTime == "" ) {
+    // Please Choose Time
+    status = false; 
+    (pickedTime).innerHTML=  "Please enter a time";
+    }
+    if ( userCity == "" ) {
+    // Please Enter City
+    status = false;
+    (userCity).innerHTML=  "Please enter the city";
+    }
+    else{
        status = true;
    }
+   showModal();
+{
+// first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
+if ( (userCity == "^\s\.\-[\s*\.\-A-Z\s*\.\-a-z\s*\.\-_ ]\.\- \s{1,50}") ){
 
-// first it will check the first line for any word OR it will check and see if the city has two words instead of just one.
-if ( (userCity == "^[A-Za-z]|^[A-Za-z]\s[A-Za-z]") ){
-
-  (userCity).innerHTML = "Please enter letters";
+  (userCity).innerHTML = "Not a valid response";
   status = false;
 } else{
   status = true;
 }
 
+
+
 /* Card outputs information*/
 
 // Card-Details
 
+
+
 // Card-Event-1
+
+
 
 // Card-Event-2
 
+
+
 // Card-Event-3
 
+  }
 };
 $(".btn").on("submit", submitBtn);
 
 // Randomize Button
-const tryAgainBtn = function randomize() {};
+const tryAgainBtn = function randomize() {
+
+
+
+
+
+};
 
 
 $(".btn").on("tryAgain", tryAgainBtn);
-// Clear Button
+// try again
 const clearBtn = function clear() {
   $("#userTime").val("");
   $("#Destination-input").val("");
@@ -158,7 +193,3 @@ const clearBtn = function clear() {
 
 
 /* Second page */
-
-
-
-<script src="VerbalExpressions.js"></script>
