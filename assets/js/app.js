@@ -5,18 +5,22 @@
 /* Global variables */
 
 //Grab the users Date
+var userTime = $("#time").val();
+console.log (userDate);
 
-var userDate = $("#userDate").val();
+//Grab the users Date
+
+var userDate = $("#date").val();
 console.log (userDate);
 
 // grabs the users city
 
-var userCity = $("#userCity").val();
+var userCity = $("#city").val();
 console.log(userCity);
 
 // grabs the users state
 
-var userState = $("#userState").val();
+var userState = $("#state").val();
 console.log(userState);
 
 // object of picked time 
@@ -87,9 +91,7 @@ let submitMod = $("#submitMod");
    
 // Have a current time variable and check the users date to make sure it valid
 
-let currentDate = moment();
-  console.log("CURRENT TIME: " + moment(currentTime).calender());
-     
+var unixTime = moment($("Time").val().trim(), "HH:mm:ss").format("X");
 
 // creating a status variable to see if meets the requirements 
 var status = false;
