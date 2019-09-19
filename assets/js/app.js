@@ -4,9 +4,9 @@
 
 /* Global variables */
 
-//Grab the users Date
-var userTime = $("#time").val();
-console.log (userDate);
+//Grab the users time
+var userTime = $("#time-Input").val();
+console.log (userTime);
 
 //Grab the users Date
 
@@ -91,13 +91,13 @@ let submitMod = $("#submitMod");
    
 // Have a current time variable and check the users date to make sure it valid
 
-var unixTime = moment($("Time").val().trim(), "HH:mm:ss").format("X");
+var unixTime = moment($("Time").val(), "HH:mm:ss").format("X");
 
 // creating a status variable to see if meets the requirements 
 var status = false;
 
 /* Dynamic-Buttons */
-let pickedTime = timeSlot[$("#time-Input").val()];
+let pickedTime = $("#time-Input").attr(timeSlot).val();
 console.log(pickedTime);
 
 // Submit Button
