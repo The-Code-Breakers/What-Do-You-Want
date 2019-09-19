@@ -57,6 +57,9 @@ let unixTime = moment($("Time").val(), "HH:mm:ss").format("X");
 // creating a status variable to see if meets the requirements
 let status = false;
 
+//  *********** added by fdh to create parameter for function call  ************
+var badInput = ""
+
 /* Dynamic-Buttons */
 // = $("#time-Input").val()
 // console.log(userTime);
@@ -81,31 +84,64 @@ const submitBtn = function submit() {
 
   pickedTime.val();
 
-  // check to make sure all requirements are met so they can go to the next page
-  status = true;
-  if (userDate == "") {
+    // check to make sure all requirements are met so they can go to the next page
+    status = true
+    badInput = ""  //  *********** added by fdh to create parameter for function call  ************
+    if ( userDate == "" ) {
     // Please Enter Date
-    status = false;
-    userDate.innerHTML = "Please enter the date";
-  }
-  if (userState == "") {
+    status = false; 
+    badInput += "Date<br>";  //  *********** added by fdh to create parameter for function call  ************
+    (userDate).innerHTML=  "Please enter the date";
+    }
+    if ( userState == "" ) {
     // Please Enter State
     status = false;
-    userState.innerHTML = "Please enter the state";
-  }
-  if (pickedTime == "") {
+    badInput += "State<br>";  //  *********** added by fdh to create parameter for function call  ************
+   (userState).innerHTML=  "Please enter the state";
+    }
+    if ( pickedTime == "" ) {
     // Please Choose Time
-    status = false;
-    pickedTime.innerHTML = "Please enter a time";
-  }
-  if (userCity == "") {
+    status = false; 
+    badInput += "Time<br>";  //  *********** added by fdh to create parameter for function call  ************
+    (pickedTime).innerHTML=  "Please enter a time";
+    }
+    if ( userCity == "" ) {
     // Please Enter City
     status = false;
-    userCity.innerHTML = "Please enter the city";
-  } else {
-    status = true;
-  }
-  showModal();
+    badInput += "City<br>";  //  *********** added by fdh to create parameter for function call  ************
+    (userCity).innerHTML=  "Please enter the city";
+    }
+    else{
+       status = true;
+   }
+
+   // showModal();      Commented out by fdh and moved below to encompass all input data ********
+
+{
+// first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
+if ( (userCity == "^\s\.\-[\s*\.\-A-Z\s*\.\-a-z\s*\.\-_ ]\.\- \s{1,50}") ){
+
+  (userCity).innerHTML = "Not a valid response";
+  status = false;
+  badInput += "City<br>"  //  *********** added by fdh to create parameter for function call  ************
+} else{
+  status = true;
+}
+
+//  *********** showModal moved here by fdh to encomass all input data ************
+if (status==false) {  
+  showModal(badInput);
+ }
+
+//badInput = ""    // variable reset added by fdh after modal closes -- this may be redundant
+
+/* Card outputs information*/
+
+// Card-Details
+
+
+
+// Card-Event-1
 
   // first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
   if (userCity == "^s.-[s*.-A-Zs*.-a-zs*.-_ ].- s{1,50}") {
