@@ -194,7 +194,7 @@ const clearBtn = function clear() {
 
 /* Event listener function */
 
-// Show Modal fxn
+// Show Modal function  invalidEnteries is a string with list of names of text boxes with invalid or no data
 
 function ShowModal(invalidEntries) {
   $("#badDataModal").modal();         // this line opens modal; next line puts in text
