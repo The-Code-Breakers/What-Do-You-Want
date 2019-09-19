@@ -189,6 +189,14 @@ const clearBtn = function clear() {
   $("#Destination-input").val("");
 };
 
+
 /* ---------------------------------------------------------------------------*/
 
 /* Event listener function */
+
+// Show Modal fxn
+
+function ShowModal(invalidEntries) {
+  $("#badDataModal").modal();         // this line opens modal; next line puts in text
+  document.getElementById("badDataModalBody").innerHTML = invalidEntries;
+}
