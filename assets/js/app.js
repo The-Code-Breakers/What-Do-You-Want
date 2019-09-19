@@ -5,26 +5,32 @@
 /* Global variables */
 
 //Grab the users Date
-var userTime = $("#time").val();
+let userTime = $("#time").val();
 console.log (userTime);
 
 //Grab the users Date
 
-var userDate = $("#date").val();
+let userDate = $("#date").val();
 console.log (userDate);
 
 // grabs the users city
 
-var userCity = $("#city").val();
+let userCity = $("#city").val();
 console.log(userCity);
 
 // grabs the users state
 
-var userState = $("#state").val();
+let userState = $("#state").val();
 console.log(userState);
 
+// variables for the API responses
+
+let meals;
+let events;
+let weather;
+
 // object of picked time 
-let timeSlot = {
+const timeSlot = {
     breakfast: {
       start: "8:00",
       end: "12:00"
@@ -47,27 +53,38 @@ let timeSlot = {
     }
   };
 
-/* API Request Section for: Evenful-API, OpenWeather-API, Yelp-API */
+/* API Request Section for: Darksky API and Foursquare API */
 
 /* ---------------------------------------------------------------------------*/
 
-/*  Evenful-API */
+/*  Foursquare API */
 
-// AJAX method
+$.ajax({
+  url: mealCall(userCity, userState, userTime),
+  method: 'GET'
+}).done(function(response){
+  meals = response;
+  lat = meals.response.geocode.feature.geometry.center.lat;
+  long = meals.response.geocode.feature.geometry.center.lng;
+});
 
-//variable to call concerts
-
-//variable to call movies
-
-//variable to call bars
+$.ajax({
+  url: eventCall(userCity, userState, userTime, $("#time-Input").val()),
+  method: 'GET'
+}).done(function(response){
+  events = response;
+});
 
 /* ---------------------------------------------------------------------------*/
 
-/* OpenWeather-API*/
+/* Darksky API*/
 
-// AJAX method
-
-//variable to call weather provided by the user location
+$.ajax({
+  url: weatherCall(lat, long, userTime, $("#time-Input").val()),
+  method: 'GET'
+}).done(function(response){
+  events = response;
+});
 
 /* ---------------------------------------------------------------------------*/
 

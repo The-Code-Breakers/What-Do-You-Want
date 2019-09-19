@@ -47,6 +47,10 @@ let eventCall = function(city, state, time, timeSlot) {
 
 //  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //  For the Darksky API
+// variables to hold the Latitude and Longitude for the Darksky API
+let lat;
+let long;
+
 //  function to call the Darksky API
 let weatherCall = function(lat, long, time) {
     let endpoint = "https://api.darksky.net/forecast/";
