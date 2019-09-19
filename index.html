@@ -1,61 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- //Required meta tags  -->
+
+<head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-     <!-- //Bootstrap CDN is Linked Here  -->
-    <link rel="stylesheet" 
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-          crossorigin="anonymous">
+     <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="assets/css/results.css">  
 
     <title>What DO YOU WANT?</title>
-  </head>
-  <body>
-    <div class="jumbotron">
-        <h1 id="title"> <center>What do YOU want?</center></h1>
-        <br>
-      <center> <em> <p id="title-description">Don't Know How To Begin? Start With Your Time!  </center></p> </em> 
-      <hr>
-        <form action="/action_page.php">
-        Time:
-        <br>
-        <input type="text" name="time" value="Time">
-        <br>
-        <br>
-        Date:
-        <br>
-        <input type="text" name="date" value="Date">
-        <br><br>
-        Location:
-        <br>
-        <input type="text" name="location" value="Location">
-        <br><br>
-        Restaurants:<br>
-      <input type="text" name="event" value="Event">
-      <br><br>
-      <button type="reset" value="Reset">Reset</button>  <input type="submit" value="Submit">
-    </form> 
-        
-        
-    <footer id="sticky">
-      <!-- <img class="fot" src="assets/images/Fot.jpg" height="50" width="50">  -->
-          What DO YOU WANT?! 
-      <!-- <img class="throne" src="assets/images/wolf.jpg" height="50" width="50"> -->
-    </footer>
+</head>
 
-     <!-- //JQUERY Link  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<body>
 
-    <!-- Javascript Link -->
-    <!-- 2x JavaScript Tags Open - Uncomment, and Replace # with relative path to JS Source Code -->
-    <script src="VerbalExpressions.js"></script>
+    <div id="index">
+        <div class="jumbotron">
+            <h1 id="title">
+                <center>What DO YOU Want?</center>
+            </h1>
 
+            <br>
+
+            <em>
+                <p id="title-description">Don't Know How To Begin? Start With Your Time! </p>
+            </em>
+
+            <hr>
+
+
+            <form action="/action_page.php">
+                Time:
+                <br>
+                <input type="time" name="time" value="Time">
+                <br>
+                <br>
+                Date:
+                <br>
+                <input type="date" name="date" value="Date">
+                <br><br>
+                City:
+                <br>
+                <input type="text" name="city" value="City">
+                <br><br>
+
+                <fieldset>
+                    State:<br>
+                    <select id="state" name="state">
+                        <option value="---">---</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="District of Columbia">District of Columbia
+                        </option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Guam">Guam</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New Hampshire">New Hampshire</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="New York">New York</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="North Dakota">North Dakota</option>
+                        <option value="Northern Marianas Islands">Northern Marianas
+                            Islands</option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Puerto Rico">Puerto Rico</option>
+                        <option value="Rhode Island">Rhode Island</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="South Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Virgin Islands">Virgin Islands</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>
+                    </select>
+                </fieldset>
+
+                <br><br>
+
+                <button type="reset" value="Reset">Reset</button> <input type="submit" value="Submit" id="submit">
+
+            </form>
+
+
+        </div>
+    </div>
+
+    <div id="results" class="animated zoomIn">
+        <div class="jumbotron overlay blue">
+
+        </div>
+
+        <div class="centered">
+            <h1 id="title">
+                <center>What DO YOU Want?</center>
+            </h1>
+
+            <br>
+
+            <center>
+                <em>
+                    <p id="title-description">
+                        Are You Pleased With Your Results? If Not, Press The "Reset" Button Below To Randomize Your
+                        Selections Again!
+                    </p>
+                </em>
+            </center>
+
+
+        </div>
+
+
+
+        <div class="content">
+            <center>
+                <h1 class="animated infinite pulse ">Results</h1>
+            </center>
+            <div class="container my-container">
+                <div class="row my-row">
+                    <div class="col-md-6  col-sm-6 my-col">
+                        <em>Weather & Location:</em>
+                        <button type="button" class="btn btn-info try-again-button" id="w-and-l"> Try Again</button>
+                    </div>
+
+                    <div class="col-md-6  col-sm-6 my-col">
+                        <em>Time & Date:</em>
+                        <button type="button" class="btn btn-info try-again-button" id="t-and-d"> Try Again</button>
+
+                    </div>
+
+                </div>
+
+                <div class="row my-row">
+
+                    <div class="col-md-6  col-sm-6 my-col">
+                        <em>Event #1:</em>
+                        <button type="button" class="btn btn-info try-again-button" id="event1"> Try Again</button>
+
+                    </div>
+
+                    <div class="col-md-6  col-sm-6 my-col">
+                        <em>Event #2:</em>
+                        <button type="button" class="btn btn-info try-again-button" id="event2"> Try Again</button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <br>
+
+            <footer id="sticky">
+                <center>
+
+
+                    <button type="button" class="btn btn-info" id="reset-all"> Reset All!</button>
+                </center>
+            </footer>
+        </div>
+        <br>
+
+        <nav class="navbar navbar-expand-m navbar-light bg-light overlay blue footer"> </nav>
+
+
+        <div id="footer-text">
+            <a href="#" class="navbar-brand"> <em>What DO YOU WANT?</em> </a>
+            <br>
+            <a href="#" class="navbar-brand"> <em>Made By: Dior Christian, James Stacy, Xavier Davis & Frank Howard
+                </em> </a>
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT BOOTSTRAP PACK -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+
+  <!-- jQuery Link-->
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+  <!-- Javascript Link -->
+  <script src="VerbalExpressions.js"></script>
+  <script src="assets/javascript/client.js"></script>
     <script src="assets/js/findZip.js"></script>
     <script src="assets/js/apiCalls.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
 </html> 
 
+</html>
