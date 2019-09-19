@@ -162,7 +162,7 @@ if ( (userCity == "^\s\.\-[\s*\.\-A-Z\s*\.\-a-z\s*\.\-_ ]\.\- \s{1,50}") ){
 }
 
 //  *********** showModal moved here by fdh to encomass all input data ************
-if (status="false") {  
+if (status==false) {  
   showModal(badInput);
  }
 
