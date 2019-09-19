@@ -48,18 +48,27 @@
 
 
             <form action="/action_page.php">
-                Time:
+               
                 <br>
-                <input type="time" name="time" id ="time" value="Time">
-                <br>
+                <fieldset>
+                    Time:<br>
+                    <select id="time-Input" name="Time-Slots">
+                        <option value="---">---</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="brunch">Brunch</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner"> Dinner</option>
+                        <option value="lateNight"> Late Night</option>
+                    </select>
+                </fieldset>
                 <br>
                 Date:
                 <br>
-                <input type="date" name="date" id ="time" value="Date">
+                <input type="date" name="date" id="date" value="">
                 <br><br>
                 City:
                 <br>
-                <input type="text" name="city" id ="time" value="City">
+                <input type="text" name="city" id="city" value="City">
                 <br><br>
 
                 <fieldset>

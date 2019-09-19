@@ -6,7 +6,7 @@
 
 //Grab the users Date
 var userTime = $("#time").val();
-console.log (userDate);
+console.log (userTime);
 
 //Grab the users Date
 
