@@ -192,6 +192,3 @@ const clearBtn = function clear() {
 /* ---------------------------------------------------------------------------*/
 
 /* Event listener function */
-
-
-/* Second page */
