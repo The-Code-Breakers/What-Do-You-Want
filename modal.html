@@ -9,21 +9,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-   <!--Styling follows:-->
-  
+
+  <!--Styling follows:-->
+
   <style>
     .modal-content {
       background-color: #3638cf;
-      color:azure;
+      color: azure;
       font-weight: bold;
     }
 
-    .modal-title, .modal-body {
-      text-align:center;
-  }
+    .modal-title,
+    .modal-body {
+      text-align: center;
+    }
   </style>
-  
+
 </head>
 
 <body>
@@ -43,25 +44,21 @@
          It should be replaced by the main routine calling code
          Thus the following 2 elements (<h3> and <input>) SHOULD BE REMOVED AND REPLACED-->
 
-                            <!-- Input box to trigger call function-->
+    <!-- Input box to trigger call function-->
 
     <h3>Input text into box to trigger JavaScript code</h3>
-    <input type="text" 
-           id="idsInputBox" 
-           name="invalid-Entries" 
-           onchange="ShowModal('These are<br>the Bad<br>Fields')"
-    >
-    <!--*******************************************************************************--> 
+    <input type="text" id="idsInputBox" name="invalid-Entries" onchange="ShowModal('These are<br>the Bad<br>Fields')">
+    <!--*******************************************************************************-->
     <!--*                              The Modal                                      *-->
-    <!--*******************************************************************************--> 
+    <!--*******************************************************************************-->
 
     <div class="modal" id="badDataModal">
       <div class="modal-dialog">
         <div class="modal-content">
-        
+
           <!-- Modal Header -->
           <div class="modal-header">
-            
+
             <h4 class="modal-title">&#x1F62E
               Oops!<br>We can't interpret your entry for the following data fields:</h4>
 
@@ -74,24 +71,24 @@
           <div class="modal-body" id="badDataModalBody">
             <!-- The list of invalid enty boxes will appear here courtsey of the ShowModal function-->
           </div>
-          
+
           <!-- Modal footer -->
           <div class="modal-footer">
             <p>Click the button to Re-Enter data! --&gt;</p>
             <button type="button" class="btn btn-danger" data-dismiss="modal">ReEnter</button>
-          </div>  
-          
+          </div>
+
         </div>
       </div>
     </div>
-    
+
   </div>
 
-    <!-- Function to open the badDataModal and pass it the invalidEntries to display
+  <!-- Function to open the badDataModal and pass it the invalidEntries to display
                                       JavaScript                                       -->
-    
 
-<script>
+
+  <script>
     function ShowModal(invalidEntries) {
       //!!!!!!!******the next two lines should be removed prior to merging with main file (that is .html or .js)
       let x = document.getElementById("idsInputBox"); // This is just to make sure the function opened
@@ -100,8 +97,9 @@
       document.getElementById("badDataModalBody").innerHTML = invalidEntries;
     }
 
-</script>
+  </script>
 </body>
+
 </html>
 
 

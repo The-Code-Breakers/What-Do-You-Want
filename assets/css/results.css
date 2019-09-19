@@ -1,192 +1,177 @@
 body {
+  margin: 30px;
+  background-image: url(https://wallpaperplay.com/walls/full/e/b/8/37588.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-    margin: 30px;
-    background-image: url(https://wallpaperplay.com/walls/full/e/b/8/37588.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+.jumbotron {
+  background-image: url(https://ip193jv95q-flywheel.netdna-ssl.com/wp-content/uploads/2016/07/DRINK-MENU-BANNER-1.png);
+  background-size: cover;
+  padding: 40px;
+}
 
-  .jumbotron {
-    background-image: url(https://ip193jv95q-flywheel.netdna-ssl.com/wp-content/uploads/2016/07/DRINK-MENU-BANNER-1.png);
-    background-size: cover;
-    padding: 40px;
-  }
+.my-container {
+  border: 1px solid whitesmoke;
+}
 
-  .my-container {
-    border: 1px solid whitesmoke;
-  }
+.my-row {
+  color: white;
+  border: 3px solid black;
+  height: 300px;
+}
 
-  .my-row {
-    color: white;
-    border: 3px solid black;
-    height: 300px;
-  }
+.my-col {
+  border: 1px solid skyblue;
+  background-color: rgba(255, 255, 255, 0.15);
+}
 
-  .my-col {
+.navbar {
+  background-image: url(https://ip193jv95q-flywheel.netdna-ssl.com/wp-content/uploads/2016/07/DRINK-MENU-BANNER-1.png);
+  background-size: cover;
+  z-index: -1;
+  height: 200px;
+}
+.overlay {
+  position: relative;
+}
 
-    border: 1px solid skyblue;
-    background-color: rgba(255,255,255, 0.15);
-  }
+.overlay:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 0;
+  display: block;
+}
 
-  .navbar {
-    background-image: url(https://ip193jv95q-flywheel.netdna-ssl.com/wp-content/uploads/2016/07/DRINK-MENU-BANNER-1.png);
-    background-size: cover;
-    z-index: -1;
-    height: 200px;
-   
-  }
-  .overlay {
-    position: relative;
-  }
+.blue:before {
+  background-color: rgba(68, 166, 198, 0.5);
+}
 
-  .overlay:before{
-    position  : absolute;
-    content : "";
-    top : 0;
-    left : 0;
-    width : 100%;
-    height : 100%;
-    display : none;
-    z-index : 0;
-    display : block;
+.jumbotron {
+  color: white;
+  height: 140px;
+}
 
-  }
+.navbar {
+  color: white;
+  height: 140px;
+}
 
-  .blue:before {
-    background-color: rgba(68, 166, 198, 0.5);
-  }
+#title {
+  z-index: 10;
+}
 
-  .jumbotron {
-    color : white;
-    height: 140px;
-  }
+.centered {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
 
-  .navbar{
-      color: white;
-      height: 140px;
-  }
-
-  #title {
-    z-index: 10;
-  }
-
+@media only screen and (min-width: 856) and (max-width: 999px) {
   .centered {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color : white;
+    top: 18%;
   }
-  
-
-
-
-  @media only screen and (min-width : 856)  and (max-width: 999px) {
-    .centered {
-      top : 18%;
-    }
-    .jumbotron {
-      color : white;
-      height: 160px;
-    }
-
-    #footer-text {
-      transform: translate(-60%, -40%);
-    }
-
-  }
-
-
-  @media only screen  and (max-width: 855px) {
-    .centered {
-      top : 20%;
-    }
-    .jumbotron {
-      height: 180px;
-    }
-    #footer-text {
-      top : 200%;
-      left: 80%;
-    }
-  }
-
-  @media only screen  and (max-width: 746px) {
-    .centered {
-      top : 22%;
-    }
-    .jumbotron {
-      height: 220px;
-    }
-  }
-
-  @media only screen  and (max-width: 490px) {
-    .centered {
-      top : 23%;
-    }
-    .jumbotron {
-      height: 240px;
-    }
-  }
-
-  @media only screen  and (max-width: 406px) {
-    .centered {
-      top : 28%;
-    }
-    .jumbotron {
-      height: 310px;
-    }
-    
-
-  }
-
-
-  
-  h1 {
-    color : white;
-  }
-
-
-  .try-again-button{
-      display: block;
-      position: absolute;
-      left: 40%;
-      bottom: 0;
-      margin-bottom: 10px;
-  }
-
-  .footer {
-      height: 100px;
+  .jumbotron {
+    color: white;
+    height: 160px;
   }
 
   #footer-text {
-    position: absolute;
-    top : 138%;
-    left: 38%;
-    transform: translate(-50%, -50%);
-    color : white;
-
+    transform: translate(-60%, -40%);
   }
+}
 
-  /* unvisited link */
+@media only screen and (max-width: 855px) {
+  .centered {
+    top: 20%;
+  }
+  .jumbotron {
+    height: 180px;
+  }
+  #footer-text {
+    top: 200%;
+    left: 80%;
+  }
+}
+
+@media only screen and (max-width: 746px) {
+  .centered {
+    top: 22%;
+  }
+  .jumbotron {
+    height: 220px;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .centered {
+    top: 23%;
+  }
+  .jumbotron {
+    height: 240px;
+  }
+}
+
+@media only screen and (max-width: 406px) {
+  .centered {
+    top: 28%;
+  }
+  .jumbotron {
+    height: 310px;
+  }
+}
+
+h1 {
+  color: white;
+}
+
+.try-again-button {
+  display: block;
+  position: absolute;
+  left: 40%;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+
+.footer {
+  height: 100px;
+}
+
+#footer-text {
+  position: absolute;
+  top: 138%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+/* unvisited link */
 a:link {
   color: white;
 }
 
 /* visited link */
 a:visited {
-  color:white;
+  color: white;
 }
 
 /* mouse over link */
 a:hover {
-  color:white;
+  color: white;
 }
 
 /* selected link */
 a:active {
-  color:white;
+  color: white;
 }
