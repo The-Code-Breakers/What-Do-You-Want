@@ -158,7 +158,3 @@ const clearBtn = function clear() {
 
 
 /* Second page */
-
-
-
-<script src="VerbalExpressions.js"></script>
