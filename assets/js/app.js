@@ -91,7 +91,7 @@ let submitMod = $("#submitMod");
    
 // Have a current time variable and check the users date to make sure it valid
 
-var unixTime = moment($("Time").val().trim(), "HH:mm:ss").format("X");
+var unixTime = moment($("Time").val(), "HH:mm:ss").format("X");
 
 // creating a status variable to see if meets the requirements 
 var status = false;
