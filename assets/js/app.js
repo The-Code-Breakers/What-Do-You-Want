@@ -4,8 +4,8 @@
 
 /* Global variables */
 
-//Grab the users Date
-var userTime = $("#time").val();
+//Grab the users time
+var userTime = $("#time-Input").val();
 console.log (userTime);
 
 //Grab the users Date
@@ -97,7 +97,7 @@ var unixTime = moment($("Time").val(), "HH:mm:ss").format("X");
 var status = false;
 
 /* Dynamic-Buttons */
-let pickedTime = timeSlot[$("#time-Input").val()];
+let pickedTime = $("#time-Input").attr(timeSlot).val();
 console.log(pickedTime);
 
 // Submit Button
