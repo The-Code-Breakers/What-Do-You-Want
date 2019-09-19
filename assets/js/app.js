@@ -123,25 +123,25 @@ const submitBtn = function submit() {
     if ( userDate == "" ) {
     // Please Enter Date
     status = false; 
-    badInput = badInput + "Date<br>";  //  *********** added by fdh to create parameter for function call  ************
+    badInput += "Date<br>";  //  *********** added by fdh to create parameter for function call  ************
     (userDate).innerHTML=  "Please enter the date";
     }
     if ( userState == "" ) {
     // Please Enter State
     status = false;
-    badInput = badInput + "State<br>";  //  *********** added by fdh to create parameter for function call  ************
+    badInput += "State<br>";  //  *********** added by fdh to create parameter for function call  ************
    (userState).innerHTML=  "Please enter the state";
     }
     if ( pickedTime == "" ) {
     // Please Choose Time
     status = false; 
-    badInput = badInput + "Time<br>";  //  *********** added by fdh to create parameter for function call  ************
+    badInput += "Time<br>";  //  *********** added by fdh to create parameter for function call  ************
     (pickedTime).innerHTML=  "Please enter a time";
     }
     if ( userCity == "" ) {
     // Please Enter City
     status = false;
-    badInput = badInput + "City<br>";  //  *********** added by fdh to create parameter for function call  ************
+    badInput += "City<br>";  //  *********** added by fdh to create parameter for function call  ************
     (userCity).innerHTML=  "Please enter the city";
     }
     else{
@@ -156,17 +156,17 @@ if ( (userCity == "^\s\.\-[\s*\.\-A-Z\s*\.\-a-z\s*\.\-_ ]\.\- \s{1,50}") ){
 
   (userCity).innerHTML = "Not a valid response";
   status = false;
-  badInput = badInput + "City<br>"  //  *********** added by fdh to create parameter for function call  ************
+  badInput += "City<br>"  //  *********** added by fdh to create parameter for function call  ************
 } else{
   status = true;
 }
 
 //  *********** showModal moved here by fdh to encomass all input data ************
-if (badInput != "") {  
+if (status="false") {  
   showModal(badInput);
  }
 
- badInput = ""    // variable reset added by fdh after modal closes -- this may be redundant
+//badInput = ""    // variable reset added by fdh after modal closes -- this may be redundant
 
 /* Card outputs information*/
 
