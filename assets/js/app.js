@@ -148,7 +148,7 @@ const submitBtn = function submit() {
        status = true;
    }
 
-   // showModal();      Commented out by fdh and moved below to encompass all input data ********
+   showModal("badData1<br>badData2");      //sting data put in; formerly Commented out by fdh and moved below to encompass all input data ********
 
 {
 // first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
@@ -165,7 +165,7 @@ if ( (userCity == "^\s\.\-[\s*\.\-A-Z\s*\.\-a-z\s*\.\-_ ]\.\- \s{1,50}") ){
 if (status==false) {  
   showModal(badInput);
  }
-
+ 
 //badInput = ""    // variable reset added by fdh after modal closes -- this may be redundant
 
 /* Card outputs information*/
