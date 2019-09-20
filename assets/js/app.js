@@ -52,8 +52,8 @@ let submitMod = $("#submitMod");
 
 // Have a current time variable and check the users date to make sure it valid
 
-let unixTime = moment($("Time").val(), "HH:mm:ss").format("X");
-
+let unixTime = moment($("#date").val(), "DD.MM.YYYY").format("X");
+console.log(unixTime);
 // creating a status variable to see if meets the requirements
 let status = false;
 
@@ -71,7 +71,7 @@ console.log(pickedTime);
 // Submit Button
 const submitBtn = function submit() {
   // taking in all the values from the form
-  userCity = $("#city")
+  let userCity = $("#city")
     .val()
     .trim();
   console.log(userCity);
@@ -82,8 +82,8 @@ const submitBtn = function submit() {
   userDate = $("#date").val();
   console.log(userDate);
 
-  pickedTime.val();
-
+  $("pickedTime").val();
+  
     // check to make sure all requirements are met so they can go to the next page
     status = true
     badInput = ""  //  *********** added by fdh to create parameter for function call  ************
@@ -211,8 +211,17 @@ if (status==false) {
   // Card-Event-2
 
   // Card-Event-3
+  
+  //console.log
+console.log("this is the city" + "  " + userCity);
+console.log("this is the state" + "  " + userState);
+console.log("this is the state" + "  " + userDate);
   }
+  
 };
+console.log(submitBtn());
+
+
 $(".btn").on("submit", submitBtn);
 
 // Randomize Button
