@@ -66,9 +66,13 @@ var badInput = ""
 /* Dynamic-Buttons */
 // = $("#time-Input").val()
 // console.log(userTime);
-let pickedTime = $("#time-Input"); 
+let pickedTime = $("#time-Input option:selected").val();
 
-  $("pickedTime").attr(timeSlot).val();
+
+//$("#time-Input"); 
+
+// pickedTime
+//   $("pickedTime").attr(timeSlot).val();
 console.log(pickedTime);
 
 // Submit Button
