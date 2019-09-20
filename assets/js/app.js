@@ -52,8 +52,11 @@ let submitMod = $("#submitMod");
 
 // Have a current time variable and check the users date to make sure it valid
 
-let unixTime = moment($("Time").val(), "HH:mm:ss").format("X");
+// XD3V assigned userDate to equal the date element in Jquery. Then decleared in the unix time as a variable in jquery 
+userDate = $("#date");
 
+let unixTime = moment($("userDate").val()).format("X");
+console.log(unixTime);
 // creating a status variable to see if meets the requirements
 let status = false;
 
@@ -63,9 +66,13 @@ var badInput = ""
 /* Dynamic-Buttons */
 // = $("#time-Input").val()
 // console.log(userTime);
-let pickedTime = $("#time-Input")
-  .attr(timeSlot)
-  .val();
+let pickedTime = $("#time-Input option:selected").val();
+
+
+//$("#time-Input"); 
+
+// pickedTime
+//   $("pickedTime").attr(timeSlot).val();
 console.log(pickedTime);
 
 // Submit Button
@@ -74,16 +81,18 @@ const submitBtn = function submit() {
   userCity = $("#city")
     .val()
     .trim();
-  console.log(userCity);
+  console.log("this is the city" + "  " + userCity);
 
   userState = $("#state").val();
-  console.log(userState);
+  console.log("this is the state" + "  " + userState);
 
   userDate = $("#date").val();
-  console.log(userDate);
+console.log("this is the Date" + "  " + userDate);
 
-  pickedTime.val();
 
+  // XD3V changed pickedTime.val(); into Jquery
+  $("pickedTime").val();
+  
     // check to make sure all requirements are met so they can go to the next page
     status = true
     badInput = ""  //  *********** added by fdh to create parameter for function call  ************
@@ -211,8 +220,15 @@ if (status==false) {
   // Card-Event-2
 
   // Card-Event-3
+  
+  //console.log
+
   }
+  
 };
+console.log(submitBtn());
+
+
 $(".btn").on("submit", submitBtn);
 
 // Randomize Button
