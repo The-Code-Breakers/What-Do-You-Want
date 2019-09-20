@@ -52,7 +52,10 @@ let submitMod = $("#submitMod");
 
 // Have a current time variable and check the users date to make sure it valid
 
-let unixTime = moment($("#date").val(), "DD.MM.YYYY").format("X");
+// XD3V assigned userDate to equal the date element in Jquery. Then decleared in the unix time as a variable in jquery 
+userDate = $("#date");
+
+let unixTime = moment($("userDate").val()).format("X");
 console.log(unixTime);
 // creating a status variable to see if meets the requirements
 let status = false;
@@ -63,25 +66,27 @@ var badInput = ""
 /* Dynamic-Buttons */
 // = $("#time-Input").val()
 // console.log(userTime);
-let pickedTime = $("#time-Input")
-  .attr(timeSlot)
-  .val();
+let pickedTime = $("#time-Input"); 
+
+  $("pickedTime").attr(timeSlot).val();
 console.log(pickedTime);
 
 // Submit Button
 const submitBtn = function submit() {
   // taking in all the values from the form
-  let userCity = $("#city")
+  userCity = $("#city")
     .val()
     .trim();
-  console.log(userCity);
+  console.log("this is the city" + "  " + userCity);
 
   userState = $("#state").val();
-  console.log(userState);
+  console.log("this is the state" + "  " + userState);
 
   userDate = $("#date").val();
-  console.log(userDate);
+console.log("this is the Date" + "  " + userDate);
 
+
+  // XD3V changed pickedTime.val(); into Jquery
   $("pickedTime").val();
   
     // check to make sure all requirements are met so they can go to the next page
@@ -213,9 +218,7 @@ if (status==false) {
   // Card-Event-3
   
   //console.log
-console.log("this is the city" + "  " + userCity);
-console.log("this is the state" + "  " + userState);
-console.log("this is the state" + "  " + userDate);
+
   }
   
 };
