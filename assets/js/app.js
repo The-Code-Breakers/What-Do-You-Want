@@ -211,6 +211,7 @@ if (status==false) {
   // Card-Event-2
 
   // Card-Event-3
+  }
 };
 $(".btn").on("submit", submitBtn);
 
