@@ -35,8 +35,8 @@
             font-weight: bold;
         }
 
-        .modal-title,
-        .modal-body {
+        .modal-title,.modal-body, 
+        #title, #title-description, #center-this-element, #reset-all, #sticky {
             text-align: center;
         }
     </style>
@@ -47,7 +47,7 @@
     <div id="index">
         <div class="jumbotron">
             <h1 id="title">
-                <center>What DO YOU Want?</center>
+                What do YOU Want?   <!--removed <center> used css instead fdh-->
             </h1>
 
             <br>
@@ -162,29 +162,27 @@
 
         <div class="centered">
             <h1 id="title">
-                <center>What DO YOU Want?</center>
+                What DO YOU Want?  <!--removed <center> used css instead fdh-->
             </h1>
 
             <br>
 
-            <center>
+              <!--removed <center> used css instead fdh-->
                 <em>
                     <p id="title-description">
                         Are You Pleased With Your Results? If Not, Press The "Reset" Button Below To Randomize Your
                         Selections Again!
                     </p>
                 </em>
-            </center>
-
-
+            
         </div>
 
 
 
         <div class="content">
-            <center>
-                <h1 class="animated infinite pulse ">Results</h1>
-            </center>
+                <!--removed <center> used css instead fdh-->
+                <h1 class="animated infinite pulse" id="center-this-element">Results</h1>
+            
             <div class="container my-container">
                 <div class="row my-row">
                     <div class="col-md-6  col-sm-6 my-col">
@@ -221,18 +219,17 @@
             <br>
 
             <footer id="sticky">
-                <center>
-
-
+                
+                  <!--removed <center> used css instead fdh-->
                     <button type="button" class="btn btn-info" id="reset-all"> Reset All!</button>
-                </center>
+        
             </footer>
         </div>
         <br>
 
         <nav class="navbar navbar-expand-m navbar-light bg-light overlay blue footer"> </nav>
 
-
+        <!--div id footer-text was here->-->
         <div id="footer-text">
             <a href="#" class="navbar-brand"> <em>What DO YOU WANT?</em> </a>
             <br>
