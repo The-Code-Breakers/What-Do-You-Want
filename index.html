@@ -15,8 +15,8 @@
 
     <!--        
         ***********************************************************************************************************
-        * Links which enable the modal to work.  Will uncomment any required for the modal to fxn                 *
-        *   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  *
+        * Links which enable the modal to work.  Can uncomment any required for the modal to fxn                 *
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  *
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>              *
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>     *
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>           *
@@ -26,20 +26,7 @@
 
 
     <title>What DO YOU WANT?</title>
-    <!--Modal Styling follows:-->
-
-    <style>
-        .modal-content {
-            background-color: #3638cf;
-            color: azure;
-            font-weight: bold;
-        }
-
-        .modal-title,.modal-body, 
-        #title, #title-description, #center-this-element, #reset-all, #sticky {
-            text-align: center;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -177,8 +164,6 @@
             
         </div>
 
-
-
         <div class="content">
                 <!--removed <center> used css instead fdh-->
                 <h1 class="animated infinite pulse" id="center-this-element">Results</h1>
@@ -218,18 +203,55 @@
             </div>
             <br>
 
+            <!--*******************************************************************************-->
+            <!--*                              The Modal                                      *-->
+            <!--*******************************************************************************-->
+
+            <div class="modal" id="badDataModal">  <!--D1 open-->
+                <div class="modal-dialog">  <!--D2 open-->
+                    <div class="modal-content">  <!--D3 open-->
+                    
+                        <!-- Modal Header -->
+                        <div class="modal-header">  <!--D4 open-->
+                    
+                            <h4 class="modal-title">&#x1F62E
+                                Oops!<br>We can't interpret your entry for the following data fields:</h4>
+                        
+                        </div>  <!--D4 close-->
+                    
+                        <!-- Modal body -->
+                        <div class="modal-body" id="badDataModalBody">  <!--D5 open-->
+                            <!-- The list of invalid enty boxes will appear here courtsey of the ShowModal function-->
+                        </div>  <!--D5 close-->
+                    
+                        <!-- Modal footer -->
+                        <div class="modal-footer">  <!--D6 open-->
+                            <p>Click the button to Re-Enter data! --&gt;</p>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">ReEnter</button>
+                        </div>  <!--D6 close-->
+                    </div>  <!--D3 close-->
+                </div>  <!--D2 close-->
+            </div>  <!--D1 close-->
+            <!--***************************  End of Modal ***************************************-->
+
+
             <footer id="sticky">
                 
                   <!--removed <center> used css instead fdh-->
                     <button type="button" class="btn btn-info" id="reset-all"> Reset All!</button>
-        
+                    <div id="footer-text">
+                        <a href="#" class="navbar-brand"> <em>What DO YOU WANT?</em> </a>
+                        <br>
+                        <a href="#" class="navbar-brand"> <em>Made By: Dior Christian, James Stacy, Xavier Davis & Frank Howard
+                            </em> </a>
+                    </div>
+            
             </footer>
         </div>
         <br>
 
         <nav class="navbar navbar-expand-m navbar-light bg-light overlay blue footer"> </nav>
 
-        <!--div id footer-text was here->-->
         <div id="footer-text">
             <a href="#" class="navbar-brand"> <em>What DO YOU WANT?</em> </a>
             <br>
@@ -261,38 +283,6 @@
     <script src="assets/js/client.js"></script>
     <script src="assets/js/apiCalls.js"></script>
     <script src="assets/js/app.js"></script>
-
-    <!--*******************************************************************************-->
-    <!--*                              The Modal                                      *-->
-    <!--*******************************************************************************-->
-
-    <div class="modal" id="badDataModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-  
-            <!-- Modal Header -->
-            <div class="modal-header">
-  
-              <h4 class="modal-title">&#x1F62E
-                Oops!<br>We can't interpret your entry for the following data fields:</h4>
-  
-              <!--we will not use the 'x' button in this modal for ver 1-->
-              <!--<button type="button" class="close" data-dismiss="modal">&times;</button> -->
-  
-            </div>
-  
-            <!-- Modal body -->
-            <div class="modal-body" id="badDataModalBody">
-              <!-- The list of invalid enty boxes will appear here courtsey of the ShowModal function-->
-            </div>
-  
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <p>Click the button to Re-Enter data! --&gt;</p>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">ReEnter</button>
-            </div>
-          </div>
-        </div>
-    </div>
+    
 </body>
 </html>

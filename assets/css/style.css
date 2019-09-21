@@ -14,3 +14,14 @@ body {
 .my-col {
   border: 3px dotted blue;
 }
+
+.modal-content {
+  background-color: #3638cf;
+  color: azure;
+  font-weight: bold;
+}
+
+.modal-title,.modal-body, 
+#title, #title-description, #center-this-element, #reset-all, #sticky {
+  text-align: center;
+}
