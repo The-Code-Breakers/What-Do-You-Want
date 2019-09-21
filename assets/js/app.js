@@ -52,10 +52,19 @@ let submitMod = $("#submitMod");
 
 // Have a current time variable and check the users date to make sure it valid
 
-// XD3V assigned userDate to equal the date element in Jquery. Then decleared in the unix time as a variable in jquery 
-userDate = $("#date");
+//XD3V made changes on line 55 grabbing the value from the date id .
+userDate = $("#date").val();
 
-let unixTime = moment($("userDate").val()).format("X");
+// let dateFormat ="MM-DD-YYYY"; <----- That line i commented out so i can use it to format it into unix later on.
+
+// XD3V created new variable named convertedDate that converts the moment function into a variable
+var convertedDate = moment(userDate);
+
+// XD3V assigned unixTime to equal var convertableDate which will format it in unix time. 
+//NOTE: line 67 does not completely work yet.
+
+
+let unixTime = convertedDate.format("X");
 console.log(unixTime);
 // creating a status variable to see if meets the requirements
 let status = false;
@@ -66,7 +75,7 @@ var badInput = ""
 /* Dynamic-Buttons */
 // = $("#time-Input").val()
 // console.log(userTime);
-let pickedTime = $("#time-Input option:selected").val();
+let pickedTime = $("#time-Input, option:selected").val();
 
 
 //$("#time-Input"); 
@@ -87,7 +96,7 @@ const submitBtn = function submit() {
   console.log("this is the state" + "  " + userState);
 
   userDate = $("#date").val();
-console.log("this is the Date" + "  " + userDate);
+ console.log("this is the Date" + "  " + userDate);
 
 
   // XD3V changed pickedTime.val(); into Jquery
@@ -226,10 +235,11 @@ if (status==false) {
   }
   
 };
+
+// XD3V changed line 234. We were using incorrect syntax for delcaring this jquery event listener.
+$("#submit").on("click", submitBtn);
+
 console.log(submitBtn());
-
-
-$(".btn").on("submit", submitBtn);
 
 // Randomize Button
 const tryAgainBtn = function randomize() {};
