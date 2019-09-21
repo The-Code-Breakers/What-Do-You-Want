@@ -58,15 +58,7 @@ var badInput = ""
 
 /* Dynamic-Buttons */
 // = $("#time-Input").val()
-// console.log(userTime);
-let pickedTime = $("#time-Input, option:selected").val();
 
-
-//$("#time-Input"); 
-
-// pickedTime
-//   $("pickedTime").attr(timeSlot).val();
-console.log(pickedTime);
 
 // Submit Button
 const submitBtn = function submit() {
@@ -93,11 +85,18 @@ var convertedDate = moment(userDate);
 // XD3V assigned unixTime to equal var convertableDate which will format it in unix time. 
 
 let unixTime = convertedDate.format("X");
-console.log( "this is the unix time" + unixTime);
+console.log( "this is the unix time  " + unixTime);
+
+/* ---------------- XD3V placed the new time picked into the submit button function ----------------*/
+
+/* The variable pickedTime is assigned to a Jquery format and it shows what ever the user picks from the drop down menu.
+ Then it once the slection is chose it is linked to the object made named timeSlots pulling the time slots the API needs. */
+
+let pickedTime =  $("#time-Input, option:selected").attr(timeSlot).val();
 
   // XD3V changed pickedTime.val(); into Jquery
   $("pickedTime").val();
-  
+  console.log(pickedTime);
     // check to make sure all requirements are met so they can go to the next page
     status = true
     badInput = ""  //  *********** added by fdh to create parameter for function call  ************
