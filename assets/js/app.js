@@ -47,12 +47,11 @@ const timeSlot = {
 let showModal = function(invalidEntries) {
   $("#badDataModal").modal(); // this line opens modal; next line puts in text
   document.getElementById("badDataModalBody").innerHTML = invalidEntries;
-}
+};
 
 let submitMod = $("#submitMod");
 
 // Get the <span> element that closes the modal
-
 
 // creating a status variable to see if meets the requirements
 let status = false;
@@ -76,36 +75,37 @@ const submitBtn = function submit() {
 
   userDate = $("#date").val();
 
- console.log("this is the Date" + "  " + userDate);
+  console.log("this is the Date" + "  " + userDate);
 
-/*--------- Moved users date inside the submit function ---------*/
+  /*--------- Moved users date inside the submit function ---------*/
 
-//XD3V moved users date input into the submit function,
-userDate = $("#date").val();
+  //XD3V moved users date input into the submit function,
+  userDate = $("#date").val();
 
-// XD3V created new variable named convertedDate that converts the moment function into a variable
-var convertedDate = moment(userDate);
+  // XD3V created new variable named convertedDate that converts the moment function into a variable
+  var convertedDate = moment(userDate);
 
-// XD3V assigned unixTime to equal var convertableDate which will format it in unix time. 
+  // XD3V assigned unixTime to equal var convertableDate which will format it in unix time.
 
-let unixTime = convertedDate.format("X");
-console.log( "this is the unix time  " + unixTime);
+  let unixTime = convertedDate.format("X");
+  console.log("this is the unix time  " + unixTime);
 
-/* ---------------- XD3V placed the new time picked into the submit button function ----------------*/
+  /* ---------------- XD3V placed the new time picked into the submit button function ----------------*/
 
-/* The variable pickedTime is assigned to a Jquery format and it shows what ever the user picks from the drop down menu.
+  /* The variable pickedTime is assigned to a Jquery format and it shows what ever the user picks from the drop down menu.
  Then it once the slection is chose it is linked to the object made named timeSlots pulling the time slots the API needs. */
 
-let pickedTime =  $("#time-Input, option:selected").attr(timeSlot).val();
+  let pickedTime = $("#time-Input, option:selected")
+    .attr(timeSlot)
+    .val();
 
   // XD3V changed pickedTime.val(); into Jquery
   $("pickedTime").val();
   console.log(pickedTime);
-    // check to make sure all requirements are met so they can go to the next page
-    status = true
-    badInput = ""  //  *********** added by fdh to create parameter for function call  ************
-    if ( userDate == "" ) {
-
+  // check to make sure all requirements are met so they can go to the next page
+  status = true;
+  badInput = ""; //  *********** added by fdh to create parameter for function call  ************
+  if (userDate == "") {
     // Please Enter Date
     status = false;
     badInput += "Date<br>"; //  *********** added by fdh to create parameter for function call  ************
@@ -132,7 +132,7 @@ let pickedTime =  $("#time-Input, option:selected").attr(timeSlot).val();
     status = true;
   }
 
-  showModal("badData1<br>badData2"); //string data put in; formerly Commented out by fdh and moved below to encompass all input data ********
+  // showModal("badData1<br>badData2"); //string data put in; formerly Commented out by fdh and moved below to encompass all input data ********
 
   {
     // first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
@@ -174,7 +174,12 @@ let pickedTime =  $("#time-Input, option:selected").attr(timeSlot).val();
       /*  Foursquare API */
 
       let mealURL = mealCall(userCity, userState, userTime);
-      let eventURL = eventCall(userCity, userState, userTime, $("#time-Input").val());
+      let eventURL = eventCall(
+        userCity,
+        userState,
+        userTime,
+        $("#time-Input").val()
+      );
       let weatherURL = weatherCall(lat, long, unixTime, $("#time-Input").val());
 
       $.ajax({
@@ -184,6 +189,7 @@ let pickedTime =  $("#time-Input, option:selected").attr(timeSlot).val();
         meals = response;
         lat = meals.response.geocode.feature.geometry.center.lat;
         long = meals.response.geocode.feature.geometry.center.lng;
+        $("#meal").html(meals.response.venues[0].name + "<br>" + meals.response.venues[0].location.address);
       });
 
       $.ajax({
@@ -191,6 +197,7 @@ let pickedTime =  $("#time-Input, option:selected").attr(timeSlot).val();
         method: "GET"
       }).done(function(response) {
         events = response;
+        $("#event").html(events.response.venues[0].name + "<br>" + events.response.venues[0].location.address);
       });
 
       /* ---------------------------------------------------------------------------*/
@@ -202,6 +209,8 @@ let pickedTime =  $("#time-Input, option:selected").attr(timeSlot).val();
         method: "GET"
       }).done(function(response) {
         weather = response;
+        $("#weather").html("Where? " + userCity + ", " + userState +"<br>Timezone: " + weather.timezone + "<br>Condition: " + weather.currently.summary + "<br>Temp Feels Like: " + weather.currently.apparentTemperature);
+        $("#time-date").html("Timeslot chosen: " + pickedTime + "<br><br>Date chosen: " + userDate)
       });
 
       //  Debbugging
