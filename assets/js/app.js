@@ -132,7 +132,7 @@ const submitBtn = function submit() {
     status = true;
   }
 
-  showModal("badData1<br>badData2"); //string data put in; formerly Commented out by fdh and moved below to encompass all input data ********
+  // showModal("badData1<br>badData2"); //string data put in; formerly Commented out by fdh and moved below to encompass all input data ********
 
   {
     // first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
@@ -189,6 +189,7 @@ const submitBtn = function submit() {
         meals = response;
         lat = meals.response.geocode.feature.geometry.center.lat;
         long = meals.response.geocode.feature.geometry.center.lng;
+        $("#meal").html(meals.response.venues[0].name + "<br>" + meals.response.venues[0].location.address);
       });
 
       $.ajax({
@@ -196,6 +197,7 @@ const submitBtn = function submit() {
         method: "GET"
       }).done(function(response) {
         events = response;
+        $("#event").html(events.response.venues[0].name + "<br>" + events.response.venues[0].location.address);
       });
 
       /* ---------------------------------------------------------------------------*/
@@ -207,6 +209,8 @@ const submitBtn = function submit() {
         method: "GET"
       }).done(function(response) {
         weather = response;
+        $("#weather").html("Where? " + userCity + ", " + userState +"<br>Timezone: " + weather.timezone + "<br>Condition: " + weather.currently.summary + "<br>Temp Feels Like: " + weather.currently.apparentTemperature);
+        $("#time-date").html("Timeslot chosen: " + pickedTime + "<br><br>Date chosen: " + userDate)
       });
 
       //  Debbugging
