@@ -43,26 +43,29 @@ const timeSlot = {
 
 /* Modal display */
 
-// this is the vairable for the modal
-let showModal = $("#showModal");
+// Show Modal function  invalidEnteries is a string with list of names of text boxes with invalid or no data
+let showModal = function(invalidEntries) {
+  $("#badDataModal").modal(); // this line opens modal; next line puts in text
+  document.getElementById("badDataModalBody").innerHTML = invalidEntries;
+}
 
 let submitMod = $("#submitMod");
 
 // Get the <span> element that closes the modal
 
+
 // creating a status variable to see if meets the requirements
 let status = false;
 
 //  *********** added by fdh to create parameter for function call  ************
-var badInput = ""
+var badInput = "";
 
 /* Dynamic-Buttons */
 // = $("#time-Input").val()
 // console.log(userTime);
 let pickedTime = $("#time-Input, option:selected").val();
 
-
-//$("#time-Input"); 
+//$("#time-Input");
 
 // pickedTime
 //   $("pickedTime").attr(timeSlot).val();
@@ -80,6 +83,7 @@ const submitBtn = function submit() {
   console.log("this is the state" + "  " + userState);
 
   userDate = $("#date").val();
+
  console.log("this is the Date" + "  " + userDate);
 
 /*--------- Moved users date inside the submit function ---------*/
@@ -97,145 +101,143 @@ console.log( "this is the unix time" + unixTime);
 
   // XD3V changed pickedTime.val(); into Jquery
   $("pickedTime").val();
-  
-    // check to make sure all requirements are met so they can go to the next page
-    status = true
-    badInput = ""  //  *********** added by fdh to create parameter for function call  ************
-    if ( userDate == "" ) {
+
+  // check to make sure all requirements are met so they can go to the next page
+  status = true;
+  badInput = ""; //  *********** added by fdh to create parameter for function call  ************
+  if (userDate == "") {
     // Please Enter Date
-    status = false; 
-    badInput += "Date<br>";  //  *********** added by fdh to create parameter for function call  ************
-    (userDate).innerHTML=  "Please enter the date";
-    }
-    if ( userState == "" ) {
+    status = false;
+    badInput += "Date<br>"; //  *********** added by fdh to create parameter for function call  ************
+    userDate.innerHTML = "Please enter the date";
+  }
+  if (userState == "") {
     // Please Enter State
     status = false;
-    badInput += "State<br>";  //  *********** added by fdh to create parameter for function call  ************
-   (userState).innerHTML=  "Please enter the state";
-    }
-    if ( pickedTime == "" ) {
+    badInput += "State<br>"; //  *********** added by fdh to create parameter for function call  ************
+    userState.innerHTML = "Please enter the state";
+  }
+  if (pickedTime == "") {
     // Please Choose Time
-    status = false; 
-    badInput += "Time<br>";  //  *********** added by fdh to create parameter for function call  ************
-    (pickedTime).innerHTML=  "Please enter a time";
-    }
-    if ( userCity == "" ) {
+    status = false;
+    badInput += "Time<br>"; //  *********** added by fdh to create parameter for function call  ************
+    pickedTime.innerHTML = "Please enter a time";
+  }
+  if (userCity == "") {
     // Please Enter City
     status = false;
-    badInput += "City<br>";  //  *********** added by fdh to create parameter for function call  ************
-    (userCity).innerHTML=  "Please enter the city";
-    }
-    else{
-       status = true;
-   }
-
-   showModal("badData1<br>badData2");      //sting data put in; formerly Commented out by fdh and moved below to encompass all input data ********
-
-{
-// first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
-if ( (userCity == "^\s\.\-[\s*\.\-A-Z\s*\.\-a-z\s*\.\-_ ]\.\- \s{1,50}") ){
-
-  (userCity).innerHTML = "Not a valid response";
-  status = false;
-  badInput += "City<br>"  //  *********** added by fdh to create parameter for function call  ************
-} else{
-  status = true;
-}
-
-//  *********** showModal moved here by fdh to encomass all input data ************
-if (status==false) {  
-  showModal(badInput);
- }
- 
-//badInput = ""    // variable reset added by fdh after modal closes -- this may be redundant
-
-/* Card outputs information*/
-
-// Card-Details
-
-
-
-// Card-Event-1
-
-  // first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
-  if (userCity == "^s.-[s*.-A-Zs*.-a-zs*.-_ ].- s{1,50}") {
-    userCity.innerHTML = "Not a valid response";
-    status = false;
+    badInput += "City<br>"; //  *********** added by fdh to create parameter for function call  ************
+    userCity.innerHTML = "Please enter the city";
   } else {
     status = true;
   }
-  console.log(status);
 
-  if (status) {
-    /* API Request Section for: Darksky API and Foursquare API */
+  showModal("badData1<br>badData2"); //string data put in; formerly Commented out by fdh and moved below to encompass all input data ********
 
-    /* ---------------------------------------------------------------------------*/
+  {
+    // first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
+    if (userCity == "^s.-[s*.-A-Zs*.-a-zs*.-_ ].- s{1,50}") {
+      userCity.innerHTML = "Not a valid response";
+      status = false;
+      badInput += "City<br>"; //  *********** added by fdh to create parameter for function call  ************
+    } else {
+      status = true;
+    }
 
-    /*  Foursquare API */
+    //  *********** showModal moved here by fdh to encomass all input data ************
+    if (status == false) {
+      showModal(badInput);
+    }
 
-    $.ajax({
-      url: mealCall(userCity, userState, userTime),
-      method: "GET"
-    }).done(function(response) {
-      meals = response;
-      lat = meals.response.geocode.feature.geometry.center.lat;
-      long = meals.response.geocode.feature.geometry.center.lng;
-    });
+    //badInput = ""    // variable reset added by fdh after modal closes -- this may be redundant
 
-    $.ajax({
-      url: eventCall(userCity, userState, userTime, $("#time-Input").val()),
-      method: "GET"
-    }).done(function(response) {
-      events = response;
-    });
+    /* Card outputs information*/
 
-    /* ---------------------------------------------------------------------------*/
+    // Card-Details
 
-    /* Darksky API*/
+    // Card-Event-1
 
-    $.ajax({
-      url: weatherCall(lat, long, unixTime, $("#time-Input").val()),
-      method: "GET"
-    }).done(function(response) {
-      weather = response;
-    });
+    // first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
+    if (userCity == "^s.-[s*.-A-Zs*.-a-zs*.-_ ].- s{1,50}") {
+      userCity.innerHTML = "Not a valid response";
+      status = false;
+    } else {
+      status = true;
+    }
+    console.log(status);
 
-    //  Debbugging
-    console.log(
-      "Meals: " +
-        meals +
-        "\nEvents: " +
-        events +
-        "\nLat: " +
-        lat +
-        "\nLong: " +
-        long +
-        "\nWeather: " +
-        weather
-    );
-    /* ---------------------------------------------------------------------------*/
+    if (status) {
+      /* API Request Section for: Darksky API and Foursquare API */
+
+      /* ---------------------------------------------------------------------------*/
+
+      /*  Foursquare API */
+
+      let mealURL = mealCall(userCity, userState, userTime);
+      let eventURL = eventCall(userCity, userState, userTime, $("#time-Input").val());
+      let weatherURL = weatherCall(lat, long, unixTime, $("#time-Input").val());
+
+      $.ajax({
+        url: mealURL,
+        method: "GET"
+      }).done(function(response) {
+        meals = response;
+        lat = meals.response.geocode.feature.geometry.center.lat;
+        long = meals.response.geocode.feature.geometry.center.lng;
+      });
+
+      $.ajax({
+        url: eventURL,
+        method: "GET"
+      }).done(function(response) {
+        events = response;
+      });
+
+      /* ---------------------------------------------------------------------------*/
+
+      /* Darksky API*/
+
+      $.ajax({
+        url: weatherURL,
+        method: "GET"
+      }).done(function(response) {
+        weather = response;
+      });
+
+      //  Debbugging
+      console.log(
+        "Meals: " +
+          meals +
+          "\nEvents: " +
+          events +
+          "\nLat: " +
+          lat +
+          "\nLong: " +
+          long +
+          "\nWeather: " +
+          weather
+      );
+      /* ---------------------------------------------------------------------------*/
+    }
+
+    /* Card outputs information*/
+
+    // Card-Details
+
+    // Card-Event-1
+
+    // Card-Event-2
+
+    // Card-Event-3
+
+    //console.log
   }
-
-  /* Card outputs information*/
-
-  // Card-Details
-
-  // Card-Event-1
-
-  // Card-Event-2
-
-  // Card-Event-3
-  
-  //console.log
-
-  }
-  
 };
 
 // XD3V changed line 234. We were using incorrect syntax for delcaring this .on click event listener in Jquery.
 $("#submit").on("click", submitBtn);
 
-console.log(submitBtn());
+// console.log(submitBtn());
 
 // Randomize Button
 const tryAgainBtn = function randomize() {};
@@ -247,15 +249,6 @@ const clearBtn = function clear() {
   $("#Destination-input").val("");
 };
 
-
 /* ---------------------------------------------------------------------------*/
 
 /* Event listener function */
-
-
-// Show Modal function  invalidEnteries is a string with list of names of text boxes with invalid or no data
-
-function ShowModal(invalidEntries) {
-  $("#badDataModal").modal();         // this line opens modal; next line puts in text
-  document.getElementById("badDataModalBody").innerHTML = invalidEntries;
-}
