@@ -132,7 +132,7 @@ let pickedTime =  $("#time-Input, option:selected").attr(timeSlot).val();
     status = true;
   }
 
-  showModal("badData1<br>badData2"); //string data put in; formerly Commented out by fdh and moved below to encompass all input data ********
+  // showModal("badData1<br>badData2"); //string data put in; formerly Commented out by fdh and moved below to encompass all input data ********
 
   {
     // first it will check the start of the line for any word that includes white space, along side with hyphens and periods.
@@ -223,7 +223,11 @@ let pickedTime =  $("#time-Input, option:selected").attr(timeSlot).val();
     /* Card outputs information*/
 
     // Card-Weather-Location
+<<<<<<< Updated upstream
     $("#weather&location").append(weathercall).text();
+=======
+    $("#weather&location").append("weatherQuery").text();
+>>>>>>> Stashed changes
 
 
 
