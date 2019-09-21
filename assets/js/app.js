@@ -50,22 +50,6 @@ let submitMod = $("#submitMod");
 
 // Get the <span> element that closes the modal
 
-// Have a current time variable and check the users date to make sure it valid
-
-//XD3V made changes on line 55 grabbing the value from the date id .
-userDate = $("#date").val();
-
-// let dateFormat ="MM-DD-YYYY"; <----- That line i commented out so i can use it to format it into unix later on.
-
-// XD3V created new variable named convertedDate that converts the moment function into a variable
-var convertedDate = moment(userDate);
-
-// XD3V assigned unixTime to equal var convertableDate which will format it in unix time. 
-//NOTE: line 67 does not completely work yet.
-
-
-let unixTime = convertedDate.format("X");
-console.log(unixTime);
 // creating a status variable to see if meets the requirements
 let status = false;
 
@@ -98,6 +82,18 @@ const submitBtn = function submit() {
   userDate = $("#date").val();
  console.log("this is the Date" + "  " + userDate);
 
+/*--------- Moved users date inside the submit function ---------*/
+
+//XD3V moved users date input into the submit function,
+userDate = $("#date").val();
+
+// XD3V created new variable named convertedDate that converts the moment function into a variable
+var convertedDate = moment(userDate);
+
+// XD3V assigned unixTime to equal var convertableDate which will format it in unix time. 
+
+let unixTime = convertedDate.format("X");
+console.log( "this is the unix time" + unixTime);
 
   // XD3V changed pickedTime.val(); into Jquery
   $("pickedTime").val();
@@ -236,7 +232,7 @@ if (status==false) {
   
 };
 
-// XD3V changed line 234. We were using incorrect syntax for delcaring this jquery event listener.
+// XD3V changed line 234. We were using incorrect syntax for delcaring this .on click event listener in Jquery.
 $("#submit").on("click", submitBtn);
 
 console.log(submitBtn());
