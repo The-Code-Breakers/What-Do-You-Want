@@ -44,6 +44,7 @@ const timeSlot = {
 /* Modal display */
 
 // Show Modal function  invalidEnteries is a string with list of names of text boxes with invalid or no data
+
 let showModal = function(invalidEntries) {
   $("#badDataModal").modal(); // this line opens modal; next line puts in text
   document.getElementById("badDataModalBody").innerHTML = invalidEntries;
@@ -231,13 +232,29 @@ const submitBtn = function submit() {
 
     /* Card outputs information*/
 
-    // Card-Details
+    // Card-Weather-Location
+    $("#weather&location").append(weathercall).text();
+
+
+
+    // Card-Time-Date
+    
+    $("#time&date").append("pickedTime").text();
+
+    $("#time&date").append("convertedDate").text();
+
 
     // Card-Event-1
 
+    $("#event1").append("mealQuery").text();
+
     // Card-Event-2
 
-    // Card-Event-3
+
+    $("#event2").append("eventQuery").text();
+    
+
+
 
     //console.log
   }
